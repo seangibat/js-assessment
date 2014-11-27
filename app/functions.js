@@ -20,10 +20,9 @@ define(function() {
     makeClosures : function(arr, fn) {
         return arr.map(function(v){
             return function(){
-                return v * v;
+                return fn(v);
             }
         });
-
     },
 
     partial : function(fn, str1, str2) {

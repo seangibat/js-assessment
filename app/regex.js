@@ -27,10 +27,12 @@ define(function() {
     },
 
     matchesPattern : function(str) {
-        
+        var re = /\b\d{3}-\d{3}-\d{4}\b/g;
+        return re.test(str);
     },
     isUSD : function(str) {
-
+        var re = /^\$\d{1,3}((,\d{3})+)?(\.\d{2})?$/g;
+        return re.test(str);
     }
   };
 });
