@@ -27,9 +27,8 @@ define(function() {
 
     partial : function(fn, str1, str2) {
         return function(x){
-            return fn(str1,str2) + x.substring(0,2);
-        }
-
+            return fn(str1,str2,x);
+        };
     },
 
     useArguments : function() {
@@ -47,11 +46,16 @@ define(function() {
     },
 
     partialUsingArguments : function(fn) {
-
+      var args = Array.prototype.slice.call(arguments,0);
+      args.shift();
+      return function(){
+        var args2 = Array.prototype.slice.call(arguments,0) || [];
+        return fn.apply(this,args.concat(args2));
+      };
     },
 
     curryIt : function(fn) {
-
+      
     }
   };
 });
