@@ -3,19 +3,25 @@ if (typeof define !== 'function') { var define = require('amdefine')(module); }
 define(function () {
   return {
     count : function (start, end) {
-      var s = start;
-      var e = end;
+      var timer;
+
       var func = function(){
-        if (s < e){
+        if (start <= end){
+          console.log(start);
           start++;
-          setTimeout(func,100);
-        }
-        else {
-          return true;
+          timer = setTimeout(func,100);
         }
       }
 
-      return func();
+      func();
+
+      var something = {
+        cancel : function(){
+          clearTimeout(timer);
+        }
+      }
+
+      return something;
     }
   };
 });

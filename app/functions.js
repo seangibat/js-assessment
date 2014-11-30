@@ -55,7 +55,18 @@ define(function() {
     },
 
     curryIt : function(fn) {
-      
+        var arr = [];
+        var len = fn.length;
+
+        var curried = function(x){;
+            arr.push(x);
+            if (arr.length >= len)
+                return fn.apply(this,arr);
+            else
+                return curried;
+        };
+
+        return curried;
     }
   };
 });

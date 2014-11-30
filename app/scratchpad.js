@@ -1,10 +1,17 @@
-var arr1 = [ 1, 2, 3, 4 ];
+// var func = function(a,b,c){
+//   console.log(a,b,c);
+// }
 
-var permute = function(arr, index){
-  var index = (index === undefined) ? arr.length : index;
+// var httpRequest = new XMLHttpRequest();
+// httpRequest.onreeadystatechange = func;
+// httpRequest.open('GET','https://www.google.com');
+// httpRequest.send(null);
 
-  
+var test = new function(){
 
-}
+  this.hey = "heyyy";
+  this.whoa = "something";
 
-console.log(permute(arr1));
+};
+
+console.log(test.hey, test.whoa);
